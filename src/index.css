@@ -1,13 +1,202 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+body {
+  --bg: hsl(207, 26%, 17%);
+  --elements: hsl(209, 23%, 22%);
+  --text: hsl(0, 0%, 100%);
+  --search: hsl(209, 23%, 22%); /*Guessed*/
+  --tgl-btn: url("./icons/moon.svg");
+  font-size: 16px;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--bg);
+}
+.light-mode {
+  --bg: hsl(0, 0%, 98%);
+  --elements: hsl(0, 0%, 100%);
+  --text: hsl(200, 15%, 8%);
+  --search: hsl(0, 0%, 52%);
+  --tgl-btn: url("./icons/lightMoon.svg");
+}
+/* <Header/> */
+header {
+  background-color: var(--elements);
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  color: var(--text);
+}
+.tgl {
+  display: flex;
+  justify-content: space-between;
+  width: 110px;
+}
+.tgl-btn {
+  background: var(--tgl-btn);
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  cursor: pointer;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* <Search/> and <Filter/> */
+/* <Search/> */
+.search-and-filter {
+  max-width: 90%;
+  margin: 2.5rem auto;
+}
+.search-container {
+  background-color: var(--elements);
+  display: grid;
+  grid-template-columns: 12% auto;
+  padding: 15px;
+}
+.search-icon {
+  background: url("./icons/loupe.svg");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+input {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  border: none;
+  color: var(--text);
+  caret-color: var(--text);
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  color: var(--text);
+}
+/* <Filter/> */
+.filter {
+  margin-top: 2.5rem;
+}
+#select-region {
+  font-size: 1rem;
+  padding: 15px 4rem 15px 1.5rem;
+  background-color: var(--elements);
+  color: var(--text);
+  border: 0;
+}
+#select-region:focus {
+  cursor: pointer;
+}
+@media screen and (min-width: 800px) {
+  .search-and-filter {
+    display: flex;
+    justify-content: space-between;
+  }
+  .filter {
+    margin: 0;
+  }
+  .search-container {
+    width: 30%;
+    grid-template-columns: 15% auto;
+  }
+}
+
+/* <Countries/> */
+.countries-grid {
+  max-width: 90%;
+  margin: 2.5rem auto;
+  display: grid;
+  place-items: center;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* <Country/> */
+.country {
+  background-color: var(--elements);
+  max-width: 250px;
+  color: var(--text);
+}
+img {
+  width: 100%;
+  cursor: pointer;
+}
+.country-info {
+  width: 90%;
+  margin: 1rem auto 3rem;
+  line-height: 1.6;
+}
+h4 {
+  margin-bottom: 1rem;
+}
+p {
+  font-weight: 900;
+}
+span {
+  font-weight: 300;
+}
+
+/* <SelectedCountry/> */
+.selected-country {
+  max-width: 90%;
+  margin: 2.5rem auto;
+  color: var(--text);
+  line-height: 2;
+}
+.back-button-container {
+  background-color: var(--elements);
+  width: 100px;
+  display: grid;
+  grid-template-columns: 10% auto;
+  padding: 10px;
+  margin-bottom: 2rem;
+}
+.arrow-icon {
+  background: url("./icons/arrow.svg");
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+}
+button {
+  background: transparent;
+  font-size: 1rem;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+.capital {
+  margin-bottom: 1rem;
+}
+h3 {
+  margin-top: 1rem;
+}
+.borders {
+  max-width: 330px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 10px;
+}
+.border {
+  background-color: var(--elements);
+  font-size: 1rem;
+  border: none;
+  color: var(--text);
+  width: 100px;
+  text-align: center;
+}
+@media screen and (min-width: 900px) {
+  .country-info-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-gap: 50px;
+  }
+  .country-info-container article {
+    width: 600px;
+  }
+  .country-info-container article section {
+    display: flex;
+    justify-content: space-between;
+  }
 }
